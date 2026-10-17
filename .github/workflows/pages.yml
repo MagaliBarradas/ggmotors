@@ -32,7 +32,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
-          include-hidden-files: false
 
       - name: Publicar site
         id: deploy
