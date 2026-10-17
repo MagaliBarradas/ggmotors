@@ -1,0 +1,187 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * GG MOTORS design system.
+ * Carvão predominante, laranja estratégico, tipografia condensada.
+ */
+
+@theme inline {
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 4px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-charcoal: var(--charcoal);
+  --color-graphite: var(--graphite);
+  --color-offwhite: var(--offwhite);
+  --color-lightgray: var(--lightgray);
+  --font-display: "Barlow Condensed", system-ui, sans-serif;
+  --font-sans: "Barlow", system-ui, sans-serif;
+  --font-tech: "Michroma", "Barlow Condensed", sans-serif;
+}
+
+:root {
+  --radius: 0px;
+  --charcoal: oklch(0.198 0 0); /* #171717 */
+  --graphite: oklch(0.351 0 0); /* #353535 */
+  --lightgray: oklch(0.876 0.005 84); /* #D8D6D1 */
+  --offwhite: oklch(0.964 0.004 84); /* #F5F4F0 */
+
+  --background: oklch(0.198 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.351 0 0);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.198 0 0);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.664 0.208 43.5); /* #F56600 */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.351 0 0);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.351 0 0);
+  --muted-foreground: oklch(0.72 0.005 84);
+  --accent: oklch(0.664 0.208 43.5);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.664 0.208 43.5);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+    text-transform: uppercase;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--color-primary);
+}
+
+@utility rule-orange {
+  display: block;
+  width: 3.5rem;
+  height: 3px;
+  background: var(--color-primary);
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0 1.75rem;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background-color 200ms ease, transform 200ms ease;
+
+  &:hover {
+    background: color-mix(in oklab, var(--color-primary) 85%, black);
+  }
+}
+
+@utility btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0 1.75rem;
+  border: 1px solid oklch(1 0 0 / 35%);
+  color: var(--color-foreground);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: border-color 200ms ease, color 200ms ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+}
+
+@utility nav-link {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  color: var(--color-lightgray);
+  transition: color 180ms ease;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+@utility reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+  }
+
+  section[id] {
+    scroll-margin-top: 7rem;
+  }
+}
